@@ -1,0 +1,14 @@
+{
+  "description": "Installs Tenable Nessus agent for Windows and Linux",
+  "parameters": {
+    "installer_path": {
+      "description": "Full Path where Nessus agent install file is located on target node EX. *nix: /var/tmp/NessusAgent-8.2.2-es7.x86_64.rpm, Accepts .rpm or .deb *win C:\\tmp\\NessusAgent-8.1.1-x64.exe - Accepts .msi",
+      "type": "String"
+    }
+  },
+  "implementations": [
+    { "name": "install.sh", "requirements": ["shell"] },
+    { "name": "install.ps1", "requirements": ["powershell"] }
+  ]
+}
+    

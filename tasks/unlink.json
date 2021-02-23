@@ -1,0 +1,7 @@
+{
+  "description": "Unlinks Nessus agent from Tenable instance",
+  "implementations": [
+  { "name": "unlink.sh", "requirements": ["shell"] },
+  { "name": "unlink.ps1", "requirements": ["powershell"] }
+]
+}

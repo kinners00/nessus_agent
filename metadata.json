@@ -1,0 +1,61 @@
+{
+  "name": "kinners00-nessus_agent",
+  "version": "1.0.0",
+  "author": "Marc McKinley",
+  "summary": "The nessus_agent module provides tasks and plans to allow you to upload, install, link and unlink nessus agents across Linux and Windows",
+  "license": "Apache-2.0",
+  "source": "https://github.com/kinners00/nessus_agent",
+  "project_page": "https://github.com/kinners00/nessus_agent",
+  "issues_url": "https://github.com/kinners00/nessus_agent/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "SUSE",
+      "operatingsystemrelease": [
+        "11",
+        "12",
+        "15"
+      ]
+    },
+    {
+      "operatingsystem": "windows",
+      "operatingsystemrelease": [
+        "2019",
+        "2016",
+        "2012"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.18.0",
+  "template-url": "pdk-default#1.18.0",
+  "template-ref": "tags/1.18.0-0-g095317c"
+}

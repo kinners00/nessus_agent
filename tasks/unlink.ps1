@@ -1,0 +1,1 @@
+& 'C:\Program Files\Tenable\Nessus Agent\nessuscli.exe'agent unlink

@@ -1,0 +1,60 @@
+{
+  "description": "Links Tenable Nessus agent with it's Manager/Tenable.io instance - Windows",
+  "parameters": {
+    "key": {
+      "description": "Linking key for your Tenable instance - 64 character alphanumeric string",
+      "type": "String[64]"
+    },
+    "server": {
+      "description": "Equivilant to --host, IP address or hostname of your Nessus Manager environment - cloud/tenable.io host is default",
+      "type": "String[1]",
+      "default": "cloud.tenable.com"
+    },
+    "port": {
+      "description": "8834 or your custom port for your Nessus Manager environment - cloud/tenable.io port is default",
+      "type": "Integer",
+      "default": 443
+    },
+    "ca_path": {
+      "description": "Path to custom CA certificate used to validate the manager's server certificate",
+      "type": "Optional[String]"
+    },
+    "name": {
+      "description": "A name for your agent - will choose targets computer name if one isn't specified",
+      "type": "Optional[String]"
+    },
+    "groups": {
+      "description": "One or more existing agent groups where you want to add the agent. Multiple groups are supported but must be comma seperated",
+      "type": "Optional[String]"
+    },
+    "offline_install": {
+      "description": "'yes' will install the agent on a system even if it's offline - will periodically attempt to link itself to its manager",
+      "type": "Optional[String]"
+    },
+    "proxy_host": {
+      "description": "The hostname or IP address of your proxy server",
+      "type": "Optional[String]"
+    },
+    "proxy_port": {
+      "description": "The port number of the proxy server",
+      "type": "Optional[String]"
+    },
+    "proxy_password": {
+      "description": "The password of the user account that you specified as the username",
+      "type": "Optional[String]"
+    },
+    "proxy_username": {
+      "description": "The name of a user account that has permissions to access and use the proxy server",
+      "type": "Optional[String]"
+    },
+    "proxy_agent": {
+      "description": "The user agent name, if your proxy requires a preset user agent",
+      "type": "Optional[String]"
+    }
+  },
+  "implementations": [
+    { "name": "link.sh", "requirements": ["shell"] },
+    { "name": "link.ps1", "requirements": ["powershell"] }
+  ]
+}
+    
