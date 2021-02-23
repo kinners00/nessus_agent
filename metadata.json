@@ -1,6 +1,6 @@
 {
   "name": "kinners00-nessus_agent",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Marc McKinley",
   "summary": "The nessus_agent module provides tasks and plans to allow you to upload, install, link and unlink nessus agents across Linux and Windows",
   "license": "Apache-2.0",
@@ -39,6 +39,12 @@
         "12",
         "15"
       ]
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
     },
     {
       "operatingsystem": "windows",
