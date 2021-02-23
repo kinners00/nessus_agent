@@ -1,4 +1,4 @@
-plan test::install_link (
+plan nessus_agent::install_link (
   TargetSpec $targets,
   Boolean $upload = true,
   Optional[String] $install_file_local = '',
@@ -24,10 +24,10 @@ plan test::install_link (
   }
 
   # Install Nessus agent
-  run_task('test::install', $targets, {'installer_path' => $installer_path })
+  run_task('nessus_agent::install', $targets, {'installer_path' => $installer_path })
 
   # Link Nessus agent with tenable instance
-  run_task('test::link', $targets, {
+  run_task('nessus_agent::link', $targets, {
     'key' => $key,
     'server' => $server,
     'port' => $port,
