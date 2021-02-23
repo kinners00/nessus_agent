@@ -99,7 +99,7 @@ All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::
 bolt plan run nessus_agent::install_link -t <targets> install_file_local="/home/user/NessusAgent-8.2.2-x64.msi" install_file_destination="C:\tmp" installer_path="C:\tmp\NessusAgent-8.2.2-x64.msi" key=<yourkey> groups=<mygroups>
 ```
 
-### Install and Link only**
+### Install and Link only
 
 You can set ```upload=false``` to skip the upload step and only **install** and **link** agents if you've already uploaded the Nessus agent installer to the target node(s) via alternate methods.
 
@@ -111,9 +111,7 @@ bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinst
 ## Contributions
 
 If anyone would like to contribute to the module, that would be awesome and very much welcomed.
-
 Repo:        https://github.com/kinners00/nessus_agent
 
 If you're experiencing any bugs, please raise an issue below:
-
 Issues link: https://github.com/kinners00/nessus_agent/issues
