@@ -46,7 +46,7 @@ bolt task run nessus_agent::link -t <targets> key=836e1c023f20601162f908234835c0
 
 **Pair with Nessus Manager**
 
-Due to issues with use of the ```$host``` variable on windows, I've named equivalent bolt parameter as ```server``` which directly translates to ```--host``` flag.
+Due to issues with use of the ```$host``` variable on windows, I've named equivalent bolt parameter ```server```, which directly translates to ```--host``` flag.
 
 ```
 bolt task run nessus_agent::link -t <targets> key=<yourkey> server="216.58.198.174" port=8834
