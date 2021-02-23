@@ -10,21 +10,6 @@
 
 The ```nessus_agent``` module allows you to install, link and unlink nessus agents across linux and windows.
 
-## Installing
-
-Add info below to your Puppetfile:
-
-```puppet
-mod 'nessus_agent',
-    :git => 'https://github.com/kinners00/nessus_agent'
-```
-
-Install:
-
-```
-bolt puppetfile install
-```
-
 # Usage
 
 ### Tasks
