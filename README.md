@@ -46,9 +46,12 @@ bolt task run nessus_agent::link -t <targets> key=836e1c023f20601162f908234835c0
 
 **Pair with Nessus Manager**
 
+Due to issues with use of the ```$host``` variable on windows, I've named equivalent bolt parameter as ```server``` which directly translates to ```--host``` flag.
+
 ```
-bolt task run nessus_agent::link -t <targets> key=<yourkey> host="216.58.198.174" port=8834
+bolt task run nessus_agent::link -t <targets> key=<yourkey> server="216.58.198.174" port=8834
 ```
+
 **Groups**
 
 ```
@@ -78,7 +81,7 @@ bolt task run nessus_agent::link -t <targets> key=<yourkey> offline_install=yes
 There are also additional flags around proxy usage with Tenable such as pass ```proxy_username```, ```proxy_password``` and ```proxy_agent```.
 
 ```
-bolt task run nessus_agent::link -t <targets> key=<yourkey> host=<myhost> port=<hostport> proxy_host="host.corp.com" proxy_port="8834"
+bolt task run nessus_agent::link -t <targets> key=<yourkey> server=<myhost> port=<hostport> proxy_host="host.corp.com" proxy_port="8834"
 ```
 
 

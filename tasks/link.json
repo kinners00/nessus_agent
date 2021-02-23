@@ -1,5 +1,5 @@
 {
-  "description": "Links Tenable Nessus agent with it's Manager/Tenable.io instance - Windows",
+  "description": "Links Tenable Nessus agent with it's Manager/Tenable.io instance",
   "parameters": {
     "key": {
       "description": "Linking key for your Tenable instance - 64 character alphanumeric string",
