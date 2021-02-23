@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 1.0.2
+## Release 1.0.3
 
 **Features**
 
 **Bugfixes**
-Fixed naming convention on in docs (plan example).
+Further docs fixes
 
 **Known Issues**
