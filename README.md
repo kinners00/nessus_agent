@@ -10,7 +10,7 @@
 
 The ```nessus_agent``` module allows you to install, link and unlink nessus agents across linux and windows.
 
-# Usage
+## Usage
 
 ### Tasks
 
@@ -103,7 +103,7 @@ You can set ```upload=false``` to skip the upload step and only **install** and 
 bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinstaller> key=<yourkey> groups=<mygroups> upload=false
 ```
 
-# Contributions
+## Contributions
 
 If anyone would like to contribute to the module, that would be awesome and very much welcomed.
 
