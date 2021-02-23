@@ -1,6 +1,6 @@
 {
   "name": "kinners00-nessus_agent",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Marc McKinley",
   "summary": "The nessus_agent module provides tasks and plans to allow you to upload, install, link and unlink nessus agents across Linux and Windows",
   "license": "Apache-2.0",
@@ -61,6 +61,23 @@
       "version_requirement": ">= 4.10.0 < 7.0.0"
     }
   ],
+"tags": [
+  "tenable",
+  "nessus",
+  "agent",
+  "scan",
+  "security",
+  "tasks",
+  "bolt",
+  "remediation",
+  "compliance",
+  "vulnerability",
+  "vulnerabilities",
+  "patch",
+  "patching",
+  "patches",
+  "cve"
+],
   "pdk-version": "1.18.0",
   "template-url": "pdk-default#1.18.0",
   "template-ref": "tags/1.18.0-0-g095317c"

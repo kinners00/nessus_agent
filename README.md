@@ -34,7 +34,9 @@ bolt task run -t <targets> nessus_agent::install installer_path="/tmp/NessusAgen
 ```
 
 ### Agent Link
+
 If you're using tenable.io then at the very minimum, you'll only need to pass your linking key and your Nessus agents will pair with your tenable instance however they're a bunch of optional parameters you can take advantage of such agent name, groups, offline install and more.
+
 
 **Pair with Tenable.io**
 
@@ -79,11 +81,13 @@ There are also additional flags around proxy usage with Tenable such as pass ```
 bolt task run -t <targets> nessus_agent::link key=<yourkey> host=<myhost> port=<hostport> proxy_host="host.corp.com" proxy_port="8834"
 ```
 
+
 ### Agent Unlink
 
 ```
 bolt task run -t <targets> nessus_agent::unlink
 ```
+
 
 ## Plans
 
@@ -95,13 +99,14 @@ All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::
 bolt plan run nessus_agent::install_link -t <targets> install_file_local="/home/user/NessusAgent-8.2.2-x64.msi" install_file_destination="C:\tmp" installer_path="C:\tmp\NessusAgent-8.2.2-x64.msi" key=<yourkey> groups=<mygroups>
 ```
 
-**Install and Link only**
+### Install and Link only**
 
 You can set ```upload=false``` to skip the upload step and only **install** and **link** agents if you've already uploaded the Nessus agent installer to the target node(s) via alternate methods.
 
 ```
 bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinstaller> key=<yourkey> groups=<mygroups> upload=false
 ```
+
 
 ## Contributions
 
