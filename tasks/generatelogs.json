@@ -1,0 +1,19 @@
+{
+  "description": "Generates Nessus Agent bug report",
+  "parameters": {
+    "level": {
+      "description": "standard - default log generation level | full - collects extra diagnostic data",
+      "type": "Enum[standard, full]",
+      "default": "standard"
+  },"scrub": {
+      "description": "If 'true' this parameter will sanitize the last two octets of the IPv4 address",
+      "type": "Boolean",
+      "default": false
+    }
+  },
+  "implementations": [
+    { "name": "generatelogs.sh", "requirements": ["shell"] },
+    { "name": "generatelogs.ps1", "requirements": ["powershell"] }
+  ]
+}
+
