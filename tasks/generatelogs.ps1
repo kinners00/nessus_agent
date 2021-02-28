@@ -4,6 +4,7 @@ Param(
  [boolean]$scrub
  )
 
+ # Verifying Bolt parameter/variable inputs in order to populate flags and correspond values in Nessus CLI command below
  $flags = @( )
 
  if ($level -eq "full") {
@@ -18,6 +19,7 @@ Param(
  $quiet_flag="--quiet"
  $flags += $quiet_flag
 
-  # Nessus CLI command
+
+# Bug Report Generator command
 & 'C:\Program Files\Tenable\Nessus Agent\nessuscli.exe'bug-report-generator $flags
 

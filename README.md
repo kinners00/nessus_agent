@@ -3,21 +3,46 @@
 #### Table of Contents
 
 1. [Description](#description)
+2. [New to bolt?](#new-to-bolt)
+    * [Newcomers quickstart](#newcomers-quickstart)
+3. [Gotchas/Limitations](#gotchas)
 2. [Usage - Examples and general tips on how to use the content in this module](#usage)
 3. [Contributions - Guide for contributing to the module](#contributions)
 
 ## Description
 
-The ```nessus_agent``` module allows you to install, link and unlink nessus agents across linux and windows.
+The ```nessus_agent``` module allows you to install, link nessus agents as well as perform other nessus agent tasks such as generating bug reports across linux and windows targets.
+
+
+# Newcomers quickstart
+
+If you've never used bolt before, the easiest way to get started is with a bolt project. Bolt Projects allow you to keep/organise your bolt automation in a single space. I've created a skeleton of a bolt project here: https://github.com/kinners00/bolt_sandbox.
+
+1. Download/clone repo above
+2. Populate your own target inventory information in the ```inventory.yaml``` (make sure and remove what you don't need and delete #hashs)
+3. Navigate to the ```bolt_sandbox``` in your shell
+4. Install this module to your project by running ```bolt module add kinners00-nessus_agent```
+5. Run ```bolt task show``` and ```bolt plan show``` to find out what tasks and plans are available within this module
+6. Running ```bolt <automation_type> show <myautomationitem>``` will give you more detailed info on how to use a given task or plan including required and optional parameters. Try it out by running ```bolt task show nessus_agent::link``` within the bolt_sandbox directory/project.
+
+# Gotchas
+
+### Bolt tasks are copied and executed under /tmp 
+
+If you can't execute scripts under that directory, you can pass ```--tmpdir``` flag on your bolt command followed by your chosen directory for example ```--tmpdir /var/tmp```
+
+### Pass 'run as root' parameter 
+
+Depending on your targets user level permissions, you may have to pass ```--run-as root``` on your bolt command or add ```run-as: root``` to your config in your `inventory.yaml` file. 
 
 ## Usage
 
 ### Tasks
 
-Tasks are cross platform so you only need to specify your targets and the task will work out what needs to be done per supported OS across *nix & windows. Whilst they are cross platform tasks, you can only run the ```nessus_agent::link``` & ```nessus_agent::unlink``` tasks on a mix of targets comprising of disparate oses at the same time.
+Tasks are cross platform so you only need to specify your targets and the task will work out what needs to be done per supported OS across *nix & windows. Whilst they are cross platform tasks, you can only run the ```nessus_agent::link```, ```nessus_agent::unlink``` & ```nessus_agent::generatelogs``` tasks on a mix of targets comprising of disparate oses at the same time.
 
 
-### Agent Install
+### install
 
 **Windows**
 
@@ -33,7 +58,7 @@ RPM & DEB are both supported
 bolt task run nessus_agent::install -t <targets> installer_path="/tmp/NessusAgent-8.2.2-es7.x86_64.rpm"
 ```
 
-### Agent Link
+### link
 
 If you're using tenable.io then at the very minimum, you'll only need to pass your linking key and your Nessus agents will pair with your tenable instance however they're a bunch of optional parameters you can take advantage of such agent name, groups, offline install and more.
 
@@ -85,16 +110,39 @@ bolt task run nessus_agent::link -t <targets> key=<yourkey> server=<myhost> port
 ```
 
 
-### Agent Unlink
+### unlink
 
 ```
 bolt task run nessus_agent::unlink -t <targets>
 ```
 
 
+### generatelogs
+
+```
+bolt task run nessus_agent::generatelogs -t <targets>
+```
+
+**Full log report**
+
+```
+bolt task run nessus_agent::generatelogs -t <targets> level=full
+```
+
+**Scrub**
+
+The scrub functionality will sanitise the first two octets of IPV4 addresses.
+
+```
+bolt task run nessus_agent::generatelogs -t <targets> level=full scrub=true
+```
+
+
 ## Plans
 
-### Upload, Install & Link Agent
+## Upload, Install & Link Agent
+
+### install_link
 
 All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::link``` tasks are supported in this "complete workflow" plan. This plan will allow you to specify a Nessus agent install package locally on your bolt workstation for upload to your remote targets. Once uploaded, it will then install the Nessus agent using the package provided and link the Tenable agent to tenable.io or Nessus Manager, depending on the flags passed. 
 
@@ -102,12 +150,31 @@ All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::
 bolt plan run nessus_agent::install_link -t <targets> install_file_local="/home/user/NessusAgent-8.2.2-x64.msi" install_file_destination="C:\tmp" installer_path="C:\tmp\NessusAgent-8.2.2-x64.msi" key=<yourkey> groups=<mygroups>
 ```
 
-### Install and Link only
+### install_link - skip upload step
 
 You can set ```upload=false``` to skip the upload step and only **install** and **link** agents if you've already uploaded the Nessus agent installer to the target node(s) via alternate methods.
 
 ```
 bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinstaller> key=<yourkey> groups=<mygroups> upload=false
+```
+
+## Generate logs and download from target
+
+### generatelogs
+
+Nessus agent bug reports as default have root ownership meaning that bolt cannot download them directly using scp. To get around this, the ```nessus_agent::generatelogs``` plan changes the ownership of these logs (to a user you specify) to allow them to be downloaded to your workstation. Once logs are downloaded, they are deleted from the target node. 
+
+**Linux**
+
+```
+bolt plan run nessus_agent::generatelogs -t rhel file_destination="tenablelogs" user=myuser level=full scrub=true
+
+```
+
+**Windows**
+
+```
+bolt plan run nessus_agent::generatelogs -t windows file_destination="tenablelogs" level=full scrub=true
 ```
 
 
