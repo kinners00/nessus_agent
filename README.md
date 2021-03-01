@@ -3,8 +3,7 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [New to bolt?](#new-to-bolt)
-    * [Newcomers quickstart](#newcomers-quickstart)
+2. [Bolt Newcomers - Quickstart](#bolt-quickstart)
 3. [Gotchas/Limitations](#gotchas)
 2. [Usage - Examples and general tips on how to use the content in this module](#usage)
     * [Tasks](#tasks)
@@ -15,9 +14,7 @@
 
 The ```nessus_agent``` module allows you to install, link nessus agents as well as perform other nessus agent tasks such as generating bug reports across linux and windows targets.
 
-# New to bolt
-
-# Newcomers quickstart
+# Bolt Quickstart
 
 If you've never used bolt before, the easiest way to get started is with a bolt project. Bolt Projects allow you to keep/organise your bolt automation in a single space. I've created a skeleton of a bolt project here: https://github.com/kinners00/bolt_sandbox.
 
