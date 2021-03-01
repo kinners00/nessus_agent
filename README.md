@@ -157,8 +157,6 @@ bolt task run nessus_agent::generatelogs -t <targets> scrub=true
 
 ## Plans
 
-## Upload, Install & Link Agent
-
 ## install_link
 
 ```nessus_agent::install_link```
@@ -177,8 +175,6 @@ You can set ```upload=false``` to skip the upload step and only **install** and 
 bolt plan run nessus_agent::install_link -t <targets> upload=false installer_path=<pathtoinstaller> key=<yourkey> groups=<mygroups> 
 ```
 
-## Generate logs and download from target
-
 ## generatelogs(plan)
 
 ```nessus_agent::generatelogs```
@@ -190,7 +186,6 @@ When a Nessus agent log tarball is generated on linux, it has root ownership as 
 
 ```
 bolt plan run nessus_agent::generatelogs -t rhel file_destination="tenablelogs" user=myuser level=full scrub=true
-
 ```
 
 **Windows**
