@@ -12,7 +12,7 @@
     1. [generatelogs](#generatelogs)
 1. [Plans](#plans)
     1. [install_link](#install_link)
-    1. [generatelogs(plan)](#generatelogs(plan))
+    1. [generatelogs](#generatelogsplan)
 1. [Contributions - Guide for contributing to the module](#contributions)
 
 # Description
