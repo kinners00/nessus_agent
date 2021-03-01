@@ -7,7 +7,13 @@
 3. [Gotchas/Limitations](#gotchas)
 2. [Usage - Examples and general tips on how to use the content in this module](#usage)
     * [Tasks](#tasks)
+        * [nessus_agent::install](#nessus_agent::install)
+        * [nessus_agent::link](#nessus_agent::link)
+        * [nessus_agent::unlink](#nessus_agent::unlink)
+        * [nessus_agent::generatelogs](#nessus_agent::generatelogs)
     * [Plans](#plans)
+        * [nessus_agent::install_link](#nessus_agent::install_link(plan))
+        * [nessus_agent::generatelogs](#nessus_agent::generatelogs(plan))
 3. [Contributions - Guide for contributing to the module](#contributions)
 
 # Description
@@ -142,7 +148,7 @@ bolt task run nessus_agent::generatelogs -t <targets> level=full scrub=true
 
 ## Upload, Install & Link Agent
 
-## nessus_agent::install_link
+## nessus_agent::install_link(plan)
 
 All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::link``` tasks are supported in this "complete workflow" plan. This plan will allow you to specify a Nessus agent install package locally on your bolt workstation for upload to your remote targets. Once uploaded, it will then install the Nessus agent using the package provided and link the Tenable agent to tenable.io or Nessus Manager, depending on the flags passed. 
 
@@ -160,7 +166,7 @@ bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinst
 
 ## Generate logs and download from target
 
-## nessus_agent::generatelogs
+## nessus_agent::generatelogs(plan)
 
 Nessus agent bug reports as default have root ownership meaning that bolt cannot download them directly using scp. To get around this, the ```nessus_agent::generatelogs``` plan changes the ownership of these logs (to a user you specify) to allow them to be downloaded to your workstation. Once logs are downloaded, they are deleted from the target node. 
 
