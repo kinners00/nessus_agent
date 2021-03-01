@@ -21,6 +21,8 @@ The ```nessus_agent``` module allows you to install, link nessus agents as well 
 
 # Bolt Quickstart
 
+If you're a bolt aficionado, you can skip this section.
+
 If you've never used bolt before, the easiest way to get started is with a bolt project. Bolt projects allow you to keep/organise your bolt automation in a single space. I've created a skeleton of a bolt project here: https://github.com/kinners00/bolt_sandbox.
 
 1. Download/clone repo above
@@ -29,6 +31,8 @@ If you've never used bolt before, the easiest way to get started is with a bolt 
 4. Install this module in your project by running ```bolt module add kinners00-nessus_agent```
 5. Run ```bolt task show``` and ```bolt plan show``` to find out what tasks and plans are available within this module
 6. Running ```bolt <automation_type> show <myautomationitem>``` will give you more detailed info on how to use a given task or plan including required and optional parameters. Try it out by running ```bolt task show nessus_agent::link``` within the bolt_sandbox directory/project. As projects are self contained, this command will only work when your pwd is the ```bolt_sandbox``` directory. 
+
+Ps. There's some learning/sample tasks and a plan included in the ```bolt_sandbox``` that'll help you get started with building your own tasks and plans. You can start by creating tasks and plans in their relevant directories within the ```bolt_sandbox```!
 
 # Gotchas
 
