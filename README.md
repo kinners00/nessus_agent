@@ -6,7 +6,7 @@
 1. [Bolt Newcomers - Quickstart](#bolt-quickstart)
 1. [Gotchas/Limitations](#gotchas)
 1. [Tasks](#tasks)
-    1. [install](#nessus_agent::install)
+    1. [install](#install)
     1. [link](#nessus_agent::link)
     1. [unlink](#nessus_agent::unlink)
     1. [generatelogs](#nessus_agent::generatelogs)
