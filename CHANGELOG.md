@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## Release 1.1.1
+## Release 1.1.2
 
 **Features**
 Functionality: Added ```nessus_agent::generatelogs``` task and plan to enable generation of logs on targets as well as a workflow in the plan which generates logs and downloads them to your bolt workstation.
