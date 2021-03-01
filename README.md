@@ -3,18 +3,18 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Bolt Newcomers - Quickstart](#bolt-quickstart)
-3. [Gotchas/Limitations](#gotchas)
-2. [Usage - Examples and general tips on how to use the content in this module](#usage)
-    * [Tasks](#tasks)
+1. [Bolt Newcomers - Quickstart](#bolt-quickstart)
+1. [Gotchas/Limitations](#gotchas)
+1. [Usage - Examples and general tips on how to use the content in this module](#usage)
+    1. [Tasks](#tasks)
         * [install](#nessus_agent::install)
         * [link](#nessus_agent::link)
         * [unlink](#nessus_agent::unlink)
         * [generatelogs](#nessus_agent::generatelogs)
-    * [Plans](#plans)
+    1. [Plans](#plans)
         * [install_link](#nessus_agent::install_link(plan))
         * [generatelogs](#nessus_agent::generatelogs(plan))
-3. [Contributions - Guide for contributing to the module](#contributions)
+1. [Contributions - Guide for contributing to the module](#contributions)
 
 # Description
 
