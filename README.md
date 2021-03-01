@@ -45,7 +45,7 @@ Depending on your targets user level permissions, you may have to pass ```--run-
 Tasks are cross platform so you only need to specify your targets and the task will work out what needs to be done per supported OS across *nix & windows. Whilst they are cross platform tasks, you can only run the ```nessus_agent::link```, ```nessus_agent::unlink``` & ```nessus_agent::generatelogs``` tasks on a mix of targets comprising of disparate oses at the same time.
 
 
-## install
+## nessus_agent::install
 
 **Windows**
 
@@ -61,7 +61,7 @@ RPM & DEB are both supported
 bolt task run nessus_agent::install -t <targets> installer_path="/tmp/NessusAgent-8.2.2-es7.x86_64.rpm"
 ```
 
-## link
+## nessus_agent::link
 
 If you're using tenable.io then at the very minimum, you'll only need to pass your linking key and your Nessus agents will pair with your tenable instance however they're a bunch of optional parameters you can take advantage of such agent name, groups, offline install and more.
 
@@ -113,14 +113,14 @@ bolt task run nessus_agent::link -t <targets> key=<yourkey> server=<myhost> port
 ```
 
 
-## unlink
+## nessus_agent::unlink
 
 ```
 bolt task run nessus_agent::unlink -t <targets>
 ```
 
 
-## generatelogs
+## nessus_agent::generatelogs
 
 ```
 bolt task run nessus_agent::generatelogs -t <targets>
@@ -145,7 +145,7 @@ bolt task run nessus_agent::generatelogs -t <targets> level=full scrub=true
 
 ## Upload, Install & Link Agent
 
-## install_link
+## nessus_agent::install_link
 
 All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::link``` tasks are supported in this "complete workflow" plan. This plan will allow you to specify a Nessus agent install package locally on your bolt workstation for upload to your remote targets. Once uploaded, it will then install the Nessus agent using the package provided and link the Tenable agent to tenable.io or Nessus Manager, depending on the flags passed. 
 
@@ -153,7 +153,7 @@ All of the parameters found in ```nessus_agent::install``` and ```nessus_agent::
 bolt plan run nessus_agent::install_link -t <targets> install_file_local="/home/user/NessusAgent-8.2.2-x64.msi" install_file_destination="C:\tmp" installer_path="C:\tmp\NessusAgent-8.2.2-x64.msi" key=<yourkey> groups=<mygroups>
 ```
 
-## install_link - skip upload step
+**Skipping upload step**
 
 You can set ```upload=false``` to skip the upload step and only **install** and **link** agents if you've already uploaded the Nessus agent installer to the target node(s) via alternate methods.
 
@@ -163,7 +163,7 @@ bolt plan run nessus_agent::install_link -t <targets> installer_path=<pathtoinst
 
 ## Generate logs and download from target
 
-## generatelogs
+## nessus_agent::generatelogs
 
 Nessus agent bug reports as default have root ownership meaning that bolt cannot download them directly using scp. To get around this, the ```nessus_agent::generatelogs``` plan changes the ownership of these logs (to a user you specify) to allow them to be downloaded to your workstation. Once logs are downloaded, they are deleted from the target node. 
 
