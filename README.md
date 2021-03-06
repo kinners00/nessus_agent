@@ -42,7 +42,31 @@ If you can't execute scripts under that directory, you can pass ```--tmpdir``` f
 
 ### Escalating privilege with the 'run-as' parameter 
 
-Depending on your targets user level permissions, you may have to pass ```--run-as=root``` and ```--sudo-password='mypass'``` or ```--sudo-password-prompt```  on your bolt command. You can also add ```run-as: root``` and ```sudo-password: 'mypass'``` to your config in your `inventory.yaml` file to enable you keep your bolt command shorter/neater.
+Depending on your targets user level permissions, you may have to pass ```--run-as=root``` and ```--sudo-password='mypassword'``` or ```--sudo-password-prompt```  on your bolt command. You can also add ```run-as: root``` and ```sudo-password: 'mypass'``` to your config in your `inventory.yaml` file to enable you keep your bolt command shorter/neater. 
+
+## Example
+
+**Bolt Command**
+
+```
+bolt task run nessus_agent::install -t rhel installer_path="/tmp/NessusAgent-8.2.2-es7.x86_64.rpm" --run-as=root --sudo-password='mysudopassword"
+```
+
+**inventory.yaml**
+
+```
+ groups:
+   - name: rhel
+     targets:
+       - 192.168.1.234
+     config:
+       transport: ssh
+       ssh:
+         user: rheluser
+         password: 'myregularpassword'
+         run-as: root
+         sudo-password: 'mysudopassword'
+```
 
 # Usage
 
