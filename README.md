@@ -3,7 +3,7 @@
 #### Table of Contents
 
 1. [Description](#description)
-1. [Bolt Newcomers - Quickstart](#bolt-quickstart)
+1. [Bolt Quickstart](#bolt-quickstart)
 1. [Gotchas/Limitations](#gotchas)
 1. [Tasks](#tasks)
     1. [install](#install)
@@ -40,9 +40,9 @@ Ps. There's some learning/sample tasks and a plan included in the ```bolt_sandbo
 
 If you can't execute scripts under that directory, you can pass ```--tmpdir``` flag on your bolt command followed by your chosen directory for example ```--tmpdir /var/tmp```
 
-### Pass 'run as root' parameter 
+### Escalating privilege with the 'run-as' parameter 
 
-Depending on your targets user level permissions, you may have to pass ```--run-as root``` on your bolt command or add ```run-as: root``` to your config in your `inventory.yaml` file. 
+Depending on your targets user level permissions, you may have to pass ```--run-as=root``` and ```--sudo-password='mypass'``` or ```--sudo-password-prompt```  on your bolt command. You can also add ```run-as: root``` and ```sudo-password: 'mypass'``` to your config in your `inventory.yaml` file to enable you keep your bolt command shorter/neater.
 
 # Usage
 
