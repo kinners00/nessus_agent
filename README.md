@@ -25,14 +25,28 @@ If you're a bolt aficionado, you can skip this section.
 
 If you've never used bolt before, the easiest way to get started is with a bolt project. Bolt projects allow you to keep/organise your bolt automation in a single space. I've created a skeleton of a bolt project here: https://github.com/kinners00/bolt_sandbox.
 
-1. Download/clone repo above
-2. Populate your own target inventory information in the ```inventory.yaml``` file (make sure and remove what you don't need and delete #hashs)
+1. Download Bolt [here](https://puppet.com/docs/bolt/latest/bolt_installing.html) and install
+2. Download/clone repo above
+2. Populate your own target inventory information in the ```inventory.yaml``` file (make sure and remove what you don't need and delete #s)
 3. Navigate to the ```bolt_sandbox``` directory in your shell
 4. Install this module in your project by running ```bolt module add kinners00-nessus_agent```
 5. Run ```bolt task show``` and ```bolt plan show``` to find out what tasks and plans are available within this module
-6. Running ```bolt <automation_type> show <myautomationitem>``` will give you more detailed info on how to use a given task or plan including required and optional parameters. Try it out by running ```bolt task show nessus_agent::link``` within the bolt_sandbox directory/project. As projects are self contained, this command will only work when your pwd is the ```bolt_sandbox``` directory. 
+6. Running ```bolt <automation_type> show <myautomationitem>``` will give you more detailed info on how to use a given task or plan including required and optional parameters. Try it out by running ```bolt task show nessus_agent::link``` within the ```bolt_sandbox``` directory/project. 
+
+As projects are self contained, this command will only work when your current working directory is the ```bolt_sandbox``` directory (if cloned) or ```bolt_sandbox-master``` (if downloaded). 
+
+Cloned:
+```
+~/code/bolt_sandbox > bolt task show nessus_agent::link
+```
+
+Downloaded:
+```
+~/code/bolt_sandbox-master > bolt task show nessus_agent::link
+```
 
 Ps. There's some learning/sample tasks and a plan included in the ```bolt_sandbox``` that'll help you get started with building your own tasks and plans. You can start by creating tasks and plans in their relevant directories within the ```bolt_sandbox```!
+
 
 # Gotchas
 
@@ -40,16 +54,16 @@ Ps. There's some learning/sample tasks and a plan included in the ```bolt_sandbo
 
 If you can't execute scripts under that directory, you can pass ```--tmpdir``` flag on your bolt command followed by your chosen directory for example ```--tmpdir /var/tmp```
 
-### Escalating privilege with the 'run-as' parameter - Linux
+### Escalating privilege - Linux only
 
-Depending on your targets user level permissions, you may have to pass ```--run-as=root``` and ```--sudo-password='mypassword'``` or ```--sudo-password-prompt```  on your bolt command. You can also add ```run-as: root``` and ```sudo-password: 'mypass'``` to your config in your `inventory.yaml` file to enable you keep your bolt command shorter/neater. 
+Depending on your targets user level permissions, you may have to pass ```--run-as=root``` and ```--sudo-password='mysudopassword'``` or ```--sudo-password-prompt``` flags on your bolt command. You can also add ```run-as: root``` and ```sudo-password: 'mysudopassword'``` to your config in your `inventory.yaml` file to enable you to keep your bolt command shorter/neater. 
 
 ## Example
 
 **Bolt Command**
 
 ```
-bolt task run nessus_agent::install -t rhel installer_path="/tmp/NessusAgent-8.2.2-es7.x86_64.rpm" --run-as=root --sudo-password='mysudopassword"
+bolt task run nessus_agent::install -t rhel installer_path="/tmp/NessusAgent-8.2.2-es7.x86_64.rpm" --user=rheluser --password='myregularpassword' --run-as=root --sudo-password='mysudopassword'
 ```
 
 **inventory.yaml**
