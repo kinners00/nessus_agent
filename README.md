@@ -203,7 +203,7 @@ bolt plan run nessus_agent::install_link -t <targets> upload=false installer_pat
 
 ```nessus_agent::generatelogs```
 
-When a Nessus agent log tarball is generated on linux, it has root ownership as default. This means that bolt can't download logs directly using SCP. To get around this, the ```nessus_agent::generatelogs``` plan changes the ownership of these logs (to a user you specify) to allow them to be downloaded to your workstation. Once logs are downloaded, they are deleted from the target node.
+When a Nessus agent log tarball is generated on linux, it has root ownership as default. This means that bolt can't download logs directly using SCP. To get around this, the ```nessus_agent::generatelogs``` plan changes the ownership of these logs to a user you specify via the ```user``` parameter which enables bolt to download them to your workstation. Once logs are downloaded, they are deleted from the target node.
 
 
 **Linux**
